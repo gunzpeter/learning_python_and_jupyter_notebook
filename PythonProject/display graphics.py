@@ -14,17 +14,17 @@ if a == 'i':
    y = screensize[1]
 else:
     x = int(input('X tengely hossza:'))
-    y = int(input('Y tengely hossza:'))
+    while x > screensize[0]:
+        x=int(input('adj meg ' + str(screensize[0]) + '-nél kisebb számot az x tengely hosszára: '))
 
-    if x > screensize[0]:
-        x=int(input('adj meg' + str(screensize[0]) + '-nél kisebb számot'))
-    if y > screensize[1]:
-        y = int(input('adj meg' + str(screensize[0] )+ '-nél kisebb számot'))
+    y = int(input('Y tengely hossza:'))
+    while y > screensize[1]:
+        y = int(input('adj meg ' + str(screensize[1] )+ '-nél kisebb számot az y tengely hosszára: '))
 
 win=graphics.GraphWin("Windows",x,y)
 
-c = Circle(Point(50,50), 10)
-c.draw(win)
+kor = Circle(Point((x/2),(y/2)),(y/2)-10)
+kor.draw(win)
 
 win.getMouse()
 win.close()
